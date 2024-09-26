@@ -1,1 +1,6 @@
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Linuxperoxo&theme=dark&show_icons=true) [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Linuxperoxo&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
+#include <iostream>
+
+int main(int argc, char** argv){
+  std::cout << "Hello, World!" << '\n';
+  return 0
+}
