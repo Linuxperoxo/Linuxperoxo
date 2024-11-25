@@ -1,12 +1,16 @@
-#include <unistd.h>
-#include <string.h>
-
-#define MSG "Hello there! :^)\n Im 17 years old\n And I Love C/C++ and ASM\n"
-
-int main(int argc, char** argv){  
-    write(STDOUT_FILENO, MSG, strlen(MSG));
-    return 0;  
-}
+/==================================================================================================O
+|                                                                                                  |
+| #include <unistd.h>                                                                              |
+| #include <string.h>                                                                              |
+|                                                                                                  |
+| #define MSG "Hello there! :^)\n Im 17 years old\n And I Love C/C++ and ASM\n"                    |
+|                                                                                                  |
+| int main(int argc, char** argv){                                                                 |
+|    write(STDOUT_FILENO, MSG, strlen(MSG));                                                       |
+|    return 0;                                                                                     |
+| }                                                                                                |
+|                                                                                                  |
+O==================================================================================================/
 
 /==================================================================================================O
 |                                                                                                  |
