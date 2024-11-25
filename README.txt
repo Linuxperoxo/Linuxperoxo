@@ -5,7 +5,7 @@
 |                                                                                                  |
 | #define MSG "Hello there! :^)\n Im 17 years old\n And I Love C/C++ and ASM\n"                    |
 |                                                                                                  |
-| int main(void){                                                                 |
+| int main(void){                                                                                  |
 |    write(STDOUT_FILENO, MSG, strlen(MSG));                                                       |
 |    return 0;                                                                                     |
 | }                                                                                                |
