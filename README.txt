@@ -1,35 +1,30 @@
-/==================================================================================================O
-|                                                                                                  |
-| #include <unistd.h>                                                                              |
-| #include <string.h>                                                                              |
-|                                                                                                  |
-| #define MSG "Hello there! :^)\n Im 17 years old\n And I Love C/C++ and ASM\n"                    |
-|                                                                                                  |
-| int main(void){                                                                                  |
-|    write(STDOUT_FILENO, MSG, strlen(MSG));                                                       |
-|    return 0;                                                                                     |
-| }                                                                                                |
-|                                                                                                  |
-O==================================================================================================/
+.section .text
+.align 16
+.type .main, @function
+.global main
+main:
+  movq $1, %rax
+  movq $1, %rdi
+  leaq .str(%rip), %rsi
+  movq .str_len(%rip), %rdx
+  syscall
 
-/==================================================================================================O
-|                                                                                                  |
-| section .data                                                                                    |
-|  __msg db "Hello there! :^)", 0x0A, "Im 17 years old", 0x0A, "And I Love C/C++ and ASM", 0x0A    |
-|  __msg_len equ 58                                                                                |
-|                                                                                                  |
-| section .text                                                                                    |
-|   global _start                                                                                  |
-|                                                                                                  |
-| _start:                                                                                          |
-| mov rax, 1                                                                                       |
-| mov rdi, 1                                                                                       |
-| mov rsi, __msg                                                                                   |
-| mov rdx, __msg_len                                                                               |
-| syscall                                                                                          |
-|                                                                                                  |
-| mov rax, 60                                                                                      |
-| xor rdi, rdi                                                                                     |
-| syscall                                                                                          |
-|                                                                                                  |
-O==================================================================================================/
+  movq $60, %rax
+  xorq %rdi, %rdi
+  syscall
+
+.section .rodata
+.align 16
+.type .str, @object
+.str:
+  .ascii "O--------------------------O\n"
+  .ascii "| Hello there! :^)         |\n"
+  .ascii "| Im 17 years old          |\n"
+  .ascii "| And I Love C/C++ and ASM |\n"
+  .asciz "O--------------------------O\n"
+
+.type .str_len, @object
+.str_len:
+  .quad (. - .str)
+
+.section .note.GNU-stack
