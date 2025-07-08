@@ -1,28 +1,28 @@
-.section .text
+ .text
  .align 8
- .type .main, @function
- .global main
-main:
+ .type _start,@function
+ .globl _start
+_start:
   movq $1,             %rax
   movq $1,             %rdi
-  leaq .str(%rip),     %rsi
-  movq .str_len(%rip), %rdx
+  leaq _str(%rip),     %rsi
+  movq _str_len(%rip), %rdx
   syscall
 
   movq $60,  %rax
   xorq %rdi, %rdi
   syscall
 
-.section .rodata
- .align 8
- .type .str, @object
-.str:
-  .ascii "O--------------------------O\n"
-  .ascii "| Hello there! :^)         |\n"
-  .ascii "| Im 17 years old          |\n"
-  .ascii "| And I Love C/C++ and ASM |\n"
-  .asciz "O--------------------------O\n"
+ .data
+ .type _str,@object
+_str:
+  .ascii "O-------------------------------O\n"
+  .ascii "| Hello there! :^)              |\n"
+  .ascii "| Im 17 years old               |\n"
+  .ascii "| And I Love Zig, C/C++ and ASM |\n"
+  .asciz "O-------------------------------O\n"
 
-.type .str_len, @object
-.str_len:
+ .align 8
+ .type _str_len,@object
+_str_len:
   .quad (. - .str)
