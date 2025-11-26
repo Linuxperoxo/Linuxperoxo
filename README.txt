@@ -18,7 +18,7 @@ _start:
 _str:
   .ascii "O-------------------------------O\n"
   .ascii "| Hello there! :^)              |\n"
-  .ascii "| Im 17 years old               |\n"
+  .ascii "| Im 18 years old               |\n"
   .ascii "| And I Love Zig, C/C++ and ASM |\n"
   .asciz "O-------------------------------O\n"
 
